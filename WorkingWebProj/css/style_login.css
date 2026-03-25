@@ -1,0 +1,296 @@
+/* ============================================================
+   style_login.css — Login, Register & Password Reset Pages
+   Inherits CSS variables from theme.css
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+/* ── Page Background ─────────────────────────────────────── */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ede9fe 0%, #f5f4ff 50%, #e0e7ff 100%);
+    color: var(--clr-text-main, #1e1b4b);
+    padding: 20px;
+}
+
+/* ── Card Container ─────────────────────────────────────── */
+.container {
+    width: 100%;
+    max-width: 460px;
+}
+
+/* ── Auth Form Box ──────────────────────────────────────── */
+.form-box {
+    width: 100%;
+    padding: 40px 36px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.14);
+    display: none;
+    border: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+.form-box.active {
+    display: block;
+}
+
+/* ── Headings ─────────────────────────────────────────── */
+h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    text-align: center;
+    color: #1e1b4b;
+    margin-bottom: 8px;
+    margin-left: 0;
+    letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.88rem;
+    margin-bottom: 28px;
+}
+
+/* ── Input Fields ─────────────────────────────────────── */
+input,
+select {
+    width: 100%;
+    padding: 13px 16px;
+    background: #f8f7ff;
+    border-radius: 12px;
+    border: 1.5px solid #e5e7eb;
+    outline: none;
+    font-size: 0.95rem;
+    color: #1e1b4b;
+    margin-bottom: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+    background: #ffffff;
+}
+
+input::placeholder {
+    color: #9ca3af;
+    opacity: 1;
+}
+
+/* ── Primary Button ───────────────────────────────────── */
+button[type="submit"],
+.btn-reset,
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    margin-top: 6px;
+    margin-bottom: 18px;
+    letter-spacing: 0.02em;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    text-align: center;
+}
+
+button[type="submit"]:hover,
+.btn-reset:hover,
+.btn-primary:hover {
+    background: linear-gradient(135deg, #6d28d9, #9333ea);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(124, 58, 237, 0.45);
+}
+
+button[type="submit"]:active,
+.btn-reset:active,
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+/* ── Helper Text & Links ─────────────────────────────── */
+p {
+    font-size: 0.88rem;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #6b7280;
+}
+
+p a,
+.form-box a {
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: inherit;
+    transition: color 0.18s;
+}
+
+p a:hover,
+.form-box a:hover {
+    color: #6d28d9;
+    text-decoration: underline;
+}
+
+/* ── Alert Messages ─────────────────────────────────── */
+.error-message,
+.error-msg {
+    padding: 12px 16px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: #dc2626;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.alert-success,
+.success-msg {
+    padding: 12px 16px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: #15803d;
+    text-align: center;
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+/* ── Divider ─────────────────────────────────────────── */
+.form-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 20px 0;
+    color: #d1d5db;
+    font-size: 0.8rem;
+}
+
+.form-divider::before,
+.form-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e5e7eb;
+}
+
+/* ── Forgot Password / Back Link ─────────────────────── */
+.foot-links {
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+.foot-links a {
+    color: #7c3aed;
+    font-weight: 600;
+    transition: color 0.18s;
+}
+
+.foot-links a:hover {
+    color: #6d28d9;
+    text-decoration: underline;
+}
+
+/* ── Forgot Password Container ───────────────────────── */
+.forgot-container,
+.reset-container {
+    width: 100%;
+    max-width: 440px;
+    padding: 40px 36px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(124, 58, 237, 0.14);
+    border: 1px solid rgba(124, 58, 237, 0.08);
+}
+
+.forgot-container h2,
+.reset-container h2 {
+    margin-bottom: 8px;
+}
+
+.reset-subtitle {
+    text-align: center;
+    color: #6b7280;
+    font-size: 0.88rem;
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.forgot-container .footer-links,
+.reset-container .footer-links {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 0.86rem;
+}
+
+.forgot-container .footer-links a,
+.reset-container .footer-links a {
+    color: #7c3aed;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.forgot-container .footer-links a:hover,
+.reset-container .footer-links a:hover {
+    text-decoration: underline;
+    color: #6d28d9;
+}
+
+/* ── Password Reset Form Group ───────────────────────── */
+.form-group {
+    margin-bottom: 4px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.form-group input {
+    margin-bottom: 0;
+}
+
+/* ── Icon in Header ──────────────────────────────────── */
+.lock-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    border-radius: 16px;
+    margin: 0 auto 20px;
+    font-size: 1.6rem;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+}

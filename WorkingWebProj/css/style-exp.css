@@ -1,0 +1,253 @@
+/* --- Global Reset & Modern Typography --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Using a cleaner font for a modern look */
+    min-height: 100vh;
+    color: #080707;
+    background-color: #f8f9fc; /* Soft background to make white cards pop */
+}
+
+/* --- Navigation Bar --- */
+nav {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    grid-column-gap: 30px;
+    height: 70px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 0 40px;
+    z-index: 1000;
+}
+
+nav .brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #b366d4; /* Vibrant brand color */
+    transition: transform 0.3s ease;
+}
+
+/* Brand Hover Animation */
+nav .brand:hover {
+    transform: scale(1.05); /* Gently grows when hovered */
+}
+
+nav .links {
+    justify-self: end;
+}
+
+nav a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 25px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: #555;
+    font-weight: 500;
+}
+
+/* Navbar Link Hover Animation (The Pill Effect) */
+nav a:hover,
+nav a.active {
+    background: #000;
+    color: #fff !important;
+    border-radius: 25px;
+    transform: translateY(-2px); /* Lifts slightly up */
+}
+
+/* --- Header Section --- */
+header {
+    padding: 80px 20px;
+    text-align: center;
+    background: #fff;
+}
+
+header h1 {
+    font-size: 45px;
+    background: linear-gradient(to right, #b366d4, #668df2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+header .sub-title {
+    margin-top: 10px;
+    line-height: 28px;
+    color: #666;
+}
+
+/* --- Main Layout --- */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-column-gap: 40px;
+}
+
+/* --- Left Sidebar (Categories) --- */
+main .left {
+    border-right: 1px solid #eee;
+    padding-right: 20px;
+}
+
+main .left a {
+    display: block;
+    text-decoration: none;
+    color: #888;
+    font-size: 17px;
+    margin-bottom: 15px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Category Name Hover Animation */
+main .left a:hover {
+    color: #b366d4;
+    background-color: #f3e8f9; /* Soft purple highlight */
+    padding-left: 20px; /* Slides text to the right */
+}
+
+/* --- Right Content (Products) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 25px;
+    padding: 10px;
+
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover{
+    transform: translateY(-5px);
+}
+
+.product-image img{
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.product-info .title a {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+
+}
+
+.product-info .description{
+    font-size: 12px;
+    color: #888;
+    margin: 10px 0;
+
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.price{
+    font-size: 18px;
+    font-weight: bold;
+    color: #333 !important;
+
+}
+
+.add-btn{
+    background: #ff7657;
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+main .right .title a {
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+main .right .title a:hover {
+    color: #b366d4; /* Changes text color on title hover */
+}
+
+main .right .price {
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #000;
+}
+main .right .product{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+
+}
+
+main .right .product-left img{
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+main .right .title a{
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+    color: #555;
+    line-height: 26px;
+}
+
+main .right .title a:hover{
+    text-decoration: underline;
+}
+
+main .right .description{
+    margin-top: 10px;
+}
+
+main .right .price{
+    font-size: 24px;
+    margin-top: 30px;
+    color: darkred;
+}
+
+
+
+/* --- Footer --- */
+footer {
+    background-color: #fff;
+    padding: 40px;
+    text-align: center;
+    color: #999;
+    border-top: 1px solid #eee;
+    margin-top: 50px;
+}
